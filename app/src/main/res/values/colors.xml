@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="separator">#efefef</color>
+    <color name="ripple_color">#dfdfdf</color>
+
+    <color name="colorPrimary2">#3F51B5</color>
+    <color name="colorPrimaryDark2">#303F9F</color>
+    <color name="colorAccent2">#FF4081</color>
+
+
+    <color name="textSub2">#76818a</color>
+    <color name="Tex2">#404547</color>
+    <color name="White2">#fff</color>
+
+
+    <color name="colordevider2">#f1f2f4</color>
+    <color name="colorbutton2">#ff5254</color>
+    <color name="iconcolour2">#9ba4ab</color>
+    <color name="bglist2">#f8f8f8</color>
+    <color name="strok2">#e4e5ea</color>
+
+
+    <color name="green2">#5ccc78</color>
+    <color name="red2">#ea495f</color>
+    <color name="yellow2">#f8d64e</color>
+    <color name="light_green2">#1bac94</color>
+</resources>
