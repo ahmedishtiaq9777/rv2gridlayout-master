@@ -1,7 +1,9 @@
 package com.demotxt.myapp.recyclerview;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import  com.balysv.materialripple.MaterialRippleLayout;
 import com.demotxt.myapp.recyclerview.sharepref.SharedPref;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment{
 
     private SharedPref sharedPref;
     TextView txt_user_name;
@@ -49,6 +51,10 @@ public class ProfileFragment extends Fragment {
         btn_edit_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                // Intent intent = new Intent(getActivity(), ActivitySettings.class);
                 //startActivity(intent);
             }
@@ -60,21 +66,6 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                // Intent intent = new Intent(getActivity(), ActivityHistory.class);
              //   startActivity(intent);
-            }
-        });
-
-        btn_rate = view.findViewById(R.id.btn_rate);
-        btn_rate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               /* final String appName = getActivity().getPackageName();
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appName)));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appName)));
-
-                *?
-                */
             }
         });
 

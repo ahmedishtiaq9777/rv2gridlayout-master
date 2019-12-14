@@ -10,12 +10,6 @@
     android:id="@+id/layouthome"
     tools:context="com.demotxt.myapp.recyclerview.MainActivity">
 
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/gradient2"
-         />
-
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"

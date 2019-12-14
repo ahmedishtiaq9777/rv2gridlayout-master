@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.demotxt.myapp.recyclerview.HomeFragment">
+    tools:context="com.demotxt.myapp.recyclerview.HomeFragment"
+    android:background="@drawable/gradient2">
+
+    <include layout="@layout/toolbar_homepage"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="690dp"
+        android:layout_height="550dp"
         android:scrollbars="none">
 
         <LinearLayout
@@ -25,30 +28,26 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="8dp">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/image_cat1"
                     android:layout_width="70dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_search_black"
-                    />
+                    android:clickable="true"
+                    android:src="@drawable/ic_person_black" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/image_cat2"
                     android:layout_width="70dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_search_black" />
+                    android:clickable="true"
+                    android:src="@drawable/ic_woman_black_24dp" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/image_cat3"
                     android:layout_width="70dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/ic_search_black" />
-
-                <ImageButton
-                    android:id="@+id/image_cat4"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/ic_search_black" />
+                    android:clickable="true"
+                    android:src="@drawable/ic_child_care_black" />
 
             </LinearLayout>
 

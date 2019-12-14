@@ -4,17 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/toolbar"
-    android:paddingTop="24dp"
-    android:paddingBottom="5dp"
-    android:background="@drawable/gradient">
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:background="@drawable/gradient2">
 
-    <TextView
+    <SearchView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QuickMart"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:layout_gravity="center"/>
+        />
 
     <ImageView
         android:layout_width="wrap_content"

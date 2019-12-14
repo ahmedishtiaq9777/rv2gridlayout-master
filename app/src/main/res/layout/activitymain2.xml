@@ -22,19 +22,6 @@
         android:id="@+id/fragmentcontainer"
         android:layout_width="match_parent"
         android:layout_height="690dp"
-        android:layout_above="@id/nav_view"
-        android:layout_below="@+id/search">
-
-    </FrameLayout>
-
-    <SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/gradient2"
-        android:id="@+id/search"></SearchView>
-
-
+        android:layout_above="@id/nav_view"/>
 
 </RelativeLayout>

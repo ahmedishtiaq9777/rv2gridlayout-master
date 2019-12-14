@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:minHeight="?attr/actionBarSize"
-    android:background="@drawable/toolbarbg"
+    android:background="@drawable/gradient2"
     android:id="@+id/toolbar"
     android:contentInsetLeft="10dp"
     android:contentInsetRight="10dp"
@@ -29,6 +29,7 @@
        android:padding="16dp"
 
 
+
         />
 
 
@@ -38,7 +39,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="CART"
-    android:textColor="@color/Tex2"
+    android:textColor="@color/white"
     android:textSize="@dimen/text"
     android:gravity="center"
     android:layout_marginRight="45dp"

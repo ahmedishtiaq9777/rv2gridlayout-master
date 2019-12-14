@@ -17,11 +17,9 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     List<Book> lstBook2;
     List<Prod> Book22;
+    List<r3> mTrends;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-
 
         //Data for view 1
         lstBook2 = new ArrayList<>();
@@ -53,6 +51,22 @@ public class HomeFragment extends Fragment {
         Book22.add(new Prod("Dress","Women","Description",R.drawable.female));
         Book22.add(new Prod("Designer Jacket","Men","Description",R.drawable.jacket));
 
+        //Data for view 3
+
+        mTrends = new ArrayList<>();
+        mTrends.add(new r3("Toddler suit","Kids","Description",R.drawable.baby));
+        mTrends.add(new r3("Black shoes","Shoes","Description",R.drawable.shoes));
+        mTrends.add(new r3("Dress","Women","Description",R.drawable.female));
+        mTrends.add(new r3("Designer Jacket"," Men","Description",R.drawable.jacket));
+        mTrends.add(new r3("Toddler suit","Kids","Description",R.drawable.baby));
+        mTrends.add(new r3("Black shoes","Shoes","Description",R.drawable.shoes));
+        mTrends.add(new r3("Dress","Women","Description",R.drawable.female));
+        mTrends.add(new r3("Designer Jacket","Men","Description",R.drawable.jacket));
+        mTrends.add(new r3("Toddler suit","Kids","Description",R.drawable.baby));
+        mTrends.add(new r3("Black shoes","Shoes","Description",R.drawable.shoes));
+        mTrends.add(new r3("Dress","Women","Description",R.drawable.female));
+        mTrends.add(new r3("Designer Jacket","Men","Description",R.drawable.jacket));
+
 
 //Recycler View 1
         View view= inflater.inflate(R.layout.homefragment,  null);
@@ -60,9 +74,6 @@ public class HomeFragment extends Fragment {
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(),lstBook2);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         myrv.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
-
 
        myrv.setLayoutManager(layoutManager);
        myrv.setAdapter(myAdapter);
@@ -76,6 +87,15 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         myrv2.setLayoutManager(layoutManager1);
         myrv2.setAdapter(myAdapter1);
+
+//Recycler View 3
+
+        //  View view2= inflater.inflate(R.layout.homefragment,  null);
+        RecyclerView myrv3=(RecyclerView) view.findViewById(R.id.recyclerview3);
+        RecyclerView3 myAdapter2 = new RecyclerView3(getActivity(),mTrends);
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        myrv3.setLayoutManager(layoutManager2);
+        myrv3.setAdapter(myAdapter2);
 
 return  view;
 

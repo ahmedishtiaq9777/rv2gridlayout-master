@@ -1,7 +1,9 @@
 package com.demotxt.myapp.recyclerview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +50,7 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int op=0;
 
         Fragment fragment=null;
         switch (menuItem.getItemId())
@@ -65,14 +68,27 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
             case  R.id.nav_acc:
                 fragment=new ProfileFragment();
                 break;
+            case  R.id.nav_nearby:
+                try {
+                    Intent i=new Intent(MainActivity2.this,MapFragment.class);
+                    op=1;
+                    startActivity(i);
+                    //fragment=new MapFragment();
+                    break;
+
+                }catch (Exception E){
+
+                    Toast.makeText(getApplicationContext(),"error"+E.getMessage(),Toast.LENGTH_SHORT).show();
+                }
 
 
 
 
         }
 
-
+      if(op!=1)
         return  loadFragment(fragment);
+      return false;
     }
     }
 
