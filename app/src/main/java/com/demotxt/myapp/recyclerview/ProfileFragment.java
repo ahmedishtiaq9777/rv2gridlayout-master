@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import  com.balysv.materialripple.MaterialRippleLayout;
 import com.demotxt.myapp.recyclerview.sharepref.SharedPref;
 
@@ -31,7 +33,7 @@ public class ProfileFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-
+sharedPref =new SharedPref(getActivity());
 
         View view = inflater.inflate(R.layout.profilefragment, container, false);
 
@@ -47,10 +49,33 @@ public class ProfileFragment extends Fragment{
         txt_user_phone = view.findViewById(R.id.txt_user_phone);
         txt_user_address = view.findViewById(R.id.txt_user_address);
 
+        txt_user_name.setText(sharedPref.getYourName());
+        txt_user_email.setText(sharedPref.getYourEmail());
+        txt_user_address.setText(sharedPref.getYourAddress());
+        txt_user_phone.setText(sharedPref.getYourPhone());
+
         btn_edit_user = view.findViewById(R.id.btn_edit_user);
         btn_edit_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
+                Intent intent=new Intent(getActivity(),UsersettingFragment.class);
+                startActivity(intent);
+
+
+
+
+                ///FragmentTransaction ft=getChildFragmentManager().beginTransaction();
+
+
+                // UsersettingFragment user=new UsersettingFragment();
+                // ft.replace(R.id.lyt_root,user);
+
+
+
 
 
 
