@@ -41,7 +41,7 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
         {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragmentcontainer,fragment)
+                    .replace(R.id.fragmentcontainer,fragment).addToBackStack(null)
                     .commit();
             return  true;
         }

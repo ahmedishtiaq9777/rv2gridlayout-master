@@ -1,9 +1,11 @@
 package com.demotxt.myapp.recyclerview;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +14,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import  com.balysv.materialripple.MaterialRippleLayout;
 import com.demotxt.myapp.recyclerview.sharepref.SharedPref;
+import com.demotxt.myapp.recyclerview.shoppyorders.ShoppyOrderActivity;
 
 public class ProfileFragment extends Fragment{
 
@@ -26,7 +30,7 @@ public class ProfileFragment extends Fragment{
     TextView txt_user_phone;
     TextView txt_user_address;
     MaterialRippleLayout btn_edit_user;
-    MaterialRippleLayout btn_order_history, btn_rate, btn_share, btn_privacy;
+    MaterialRippleLayout btn_order_history, btn_rate, btn_share, btn_privacy,language;
     LinearLayout lyt_root;
 
     @Nullable
@@ -35,7 +39,9 @@ public class ProfileFragment extends Fragment{
 
 sharedPref =new SharedPref(getActivity());
 
-        View view = inflater.inflate(R.layout.profilefragment, container, false);
+        final View view = inflater.inflate(R.layout.profilefragment, container, false);
+        final View v2=inflater.inflate(R.layout.language,container,false);
+
 
         sharedPref = new SharedPref(getActivity());
 
@@ -60,28 +66,14 @@ sharedPref =new SharedPref(getActivity());
             public void onClick(View v) {
 
 
-
-
                 Intent intent=new Intent(getActivity(),UsersettingFragment.class);
                 startActivity(intent);
-
-
-
 
                 ///FragmentTransaction ft=getChildFragmentManager().beginTransaction();
 
 
                 // UsersettingFragment user=new UsersettingFragment();
                 // ft.replace(R.id.lyt_root,user);
-
-
-
-
-
-
-
-               // Intent intent = new Intent(getActivity(), ActivitySettings.class);
-                //startActivity(intent);
             }
         });
 
@@ -89,8 +81,8 @@ sharedPref =new SharedPref(getActivity());
         btn_order_history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(getActivity(), ActivityHistory.class);
-             //   startActivity(intent);
+               Intent intent = new Intent(getActivity(), ShoppyOrderActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -98,13 +90,13 @@ sharedPref =new SharedPref(getActivity());
         btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* String share_text = Html.fromHtml(getResources().getString(R.string.share_app)).toString();
+                String share_text = Html.fromHtml(getResources().getString(R.string.share_app)).toString();
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
                 intent.putExtra(Intent.EXTRA_TEXT, share_text + "\n\n" + "https://play.google.com/store/apps/details?id=" + getActivity().getPackageName());
                 intent.setType("text/plain");
                 startActivity(intent);
-                */
+
 
             }
         });
@@ -114,6 +106,23 @@ sharedPref =new SharedPref(getActivity());
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url))));
+            }
+        });
+
+
+        language=view.findViewById(R.id.lang);
+        language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog dialog;
+                AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                builder.setMessage("LANGUAGE").setView(v2);
+
+                dialog=builder.create();
+                dialog.show();
+
+
             }
         });
 

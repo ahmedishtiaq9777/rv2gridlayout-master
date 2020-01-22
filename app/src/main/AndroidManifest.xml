@@ -18,7 +18,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MainActivity2">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,6 +29,13 @@
         <activity android:name=".Book_Activity"></activity>
         <activity android:name=".Test"></activity>
         <activity android:name=".UsersettingFragment"></activity>
+
+
+        <activity android:name=".Signup"></activity>
+        <activity android:name=".shoppyorders.ShoppyOrderActivity"></activity>
+        <activity android:name=".Prod_Activity"></activity>
+        <activity android:name=".r3_Activity"></activity>
+        <activity android:name=".MainActivity2"></activity>
 
 
     </application>

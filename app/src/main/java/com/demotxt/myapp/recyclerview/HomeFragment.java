@@ -1,9 +1,12 @@
 package com.demotxt.myapp.recyclerview;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -69,11 +72,15 @@ public class HomeFragment extends Fragment {
 
 
 //Recycler View 1
-        View view= inflater.inflate(R.layout.homefragment,  null);
+        View view= inflater.inflate(R.layout.homefragment,container,false);
+
+        View v2=inflater.inflate(R.layout.cardveiw_item_prod,null);
+        ImageView prod =(ImageView)v2.findViewById(R.id.book_img_id);
+
         RecyclerView myrv = (RecyclerView) view.findViewById(R.id.recyclerview_id);
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(getActivity(),lstBook2);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        myrv.setLayoutManager(new LinearLayoutManager(getActivity()));
+      //  myrv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
        myrv.setLayoutManager(layoutManager);
        myrv.setAdapter(myAdapter);
@@ -97,6 +104,18 @@ public class HomeFragment extends Fragment {
         myrv3.setLayoutManager(layoutManager2);
         myrv3.setAdapter(myAdapter2);
 
+
+
+
+
+
+        prod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent productdetail=new Intent(getActivity(),Prod_Activity.class);
+                startActivity(productdetail);
+            }
+        });
 return  view;
 
 

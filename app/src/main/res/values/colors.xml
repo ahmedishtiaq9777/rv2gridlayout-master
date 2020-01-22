@@ -30,4 +30,19 @@
     <color name="red2">#ea495f</color>
     <color name="yellow2">#f8d64e</color>
     <color name="light_green2">#1bac94</color>
+
+
+//for orderlist
+    <color name="green">#5ccc78</color>
+    <color name="colordevider">#f1f2f4</color>
+    <color name="Tex">#404547</color>
+    <color name="textSub">#76818a</color>
+    <color name="red">#ea495f</color>
+
+
+
+    <color name="colortext">#100b20</color>
+    <color name="colorhint">#a9aaac</color>
+    <color name="White">#fff</color>
+    <string name="signup"><b><u>Sign up Now</u></b></string>
 </resources>

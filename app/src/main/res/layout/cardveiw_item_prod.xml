@@ -14,12 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/book_img_id"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
             android:background="#2d2d2d"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorite_border_24dp"
+                android:id="@+id/heart"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/book_title_id"
@@ -29,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="P_Name"/>
+
         
     </LinearLayout>
 

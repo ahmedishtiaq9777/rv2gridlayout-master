@@ -42,7 +42,7 @@ public class RecyclerView3 extends RecyclerView.Adapter<RecyclerView3.MyViewHold
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(mContext,Book_Activity.class);
+                Intent intent = new Intent(mContext,r3_Activity.class);
 
                 // passing data to the book activity
                 intent.putExtra("Title",Data2.get(position).getTitle());
