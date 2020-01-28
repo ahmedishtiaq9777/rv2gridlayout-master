@@ -19,9 +19,15 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.demotxt.myapp.recyclerview.productlist.ShoppyProductListActivity;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -78,7 +84,7 @@ try {
     final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
     // String url = "http:// 192.168.10.13:64077/api/login";
     //String url="https://api.myjson.com/bins/kp9wz";
-    String url = "http://ahmedishtiaq9777-001-site1.dtempurl.com/Home/login";
+    String url = "http://ahmedishtiaqbutt-001-site1.atempurl.com/Home/login";
 
 
     StringRequest rRequest = new StringRequest(Request.Method.POST, url,
@@ -97,15 +103,27 @@ String result=response.toString().substring(1,size-1);
 
                         saveloginPrefference();
 
+                        Intent intent=new Intent(Login.this, ShoppyProductListActivity.class);
+                        intent.putExtra("email",email.getText().toString());
+                        intent.putExtra("password",pass.getText().toString());
+                        startActivity(intent);
+                      // getconnection("http://ahmedishtiaqbutt-001-site1.atempurl.com/Home/getproducts/");
 
 
 
 
 
                    // finish();
-                    Intent intent=new Intent(Login.this,MainActivity2.class);
+                  //  Intent intent2=new Intent(Login.this,MainActivity2.class);
 
-                    startActivity(intent);
+                  //  startActivity(intent2);
+                    }else if(result.equals("sellersuccess")){
+
+                        finish();
+                         Intent intent2=new Intent(Login.this,MainActivity2.class);
+
+                         startActivity(intent2);
+
                     }else {
                         Toast.makeText(getApplicationContext(),"Error:"+response.toString(),Toast.LENGTH_SHORT).show();
                     }

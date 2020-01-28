@@ -30,6 +30,7 @@ public class Signup extends AppCompatActivity implements AdapterView.OnItemSelec
     TextView signin,signup;
     EditText email,password;
     Spinner spiner;
+    public  String selectedaccount;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +88,8 @@ public class Signup extends AppCompatActivity implements AdapterView.OnItemSelec
                                         Intent intent=new Intent(Signup.this,MainActivity2.class);
 
                                         startActivity(intent);
-                                    }if(result.toString().equals("alreadyregistered")){
+                                    }
+                                    if(result.toString().equals("alreadyregistered")){
                                         Toast.makeText(getApplicationContext(),"This Email is Already Registered",Toast.LENGTH_SHORT).show();
                                     }else {
                                         Log.i("APIERROR","error");
@@ -111,6 +113,7 @@ public class Signup extends AppCompatActivity implements AdapterView.OnItemSelec
 
                             params.put("email", email.getText().toString());
                             params.put("password", password.getText().toString());
+                            params.put("UserType",selectedaccount);
                             return params;
                         }
 
@@ -154,6 +157,14 @@ public class Signup extends AppCompatActivity implements AdapterView.OnItemSelec
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+selectedaccount=parent.getItemAtPosition(position).toString();
+if(selectedaccount.equals("As a Buyer")){
+    selectedaccount="C";
+
+}else if(selectedaccount.equals("As a Seller")){
+
+    selectedaccount="S";
+}
     }
 
     @Override
