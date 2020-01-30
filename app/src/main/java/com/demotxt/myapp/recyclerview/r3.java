@@ -5,12 +5,12 @@ public class r3 {
     private String Title;
     private String Category;
     private String Description;
-    private int Thumbnail;
+    private String Thumbnail;
 
     public r3() {
     }
 
-    public r3(String title, String category, String description, int thumbnail) {
+    public r3(String title, String category, String description, String thumbnail) {
         Title = title;
         Category = category;
         Description = description;
@@ -30,7 +30,7 @@ public class r3 {
         return Description;
     }
 
-    public int getThumbnail() {
+    public String getThumbnail() {
         return Thumbnail;
     }
 
@@ -47,7 +47,7 @@ public class r3 {
         Description = description;
     }
 
-    public void setThumbnail(int thumbnail) {
+    public void setThumbnail(String thumbnail) {
         Thumbnail = thumbnail;
     }
 }

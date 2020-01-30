@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Data for view 1
         lstBook = new ArrayList<>();
-        lstBook.add(new Book("Toddler suit","Kids","Description",R.drawable.baby));
+       /* lstBook.add(new Book("Toddler suit","Kids","Description",R.drawable.baby));
         lstBook.add(new Book("Black shoes","Shoes","Description",R.drawable.shoes));
         lstBook.add(new Book("Dress","Women","Description",R.drawable.female));
         lstBook.add(new Book("Designer Jacket"," Men","Description",R.drawable.jacket));
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         Book2.add(new Prod("Dress","Women","Description",R.drawable.female));
         Book2.add(new Prod("Designer Jacket","Men","Description",R.drawable.jacket));
 
-
+*/
 //Recycler View 1
         RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_id);
         RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(this,lstBook);

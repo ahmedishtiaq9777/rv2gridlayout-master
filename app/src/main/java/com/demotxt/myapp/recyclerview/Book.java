@@ -5,12 +5,13 @@ public class Book {
     private String Title;
     private String Category;
     private String Description;
-    private int Thumbnail;
+    private String Thumbnail;
+    private Float Price ;
 
     public Book() {
     }
 
-    public Book(String title, String category, String description, int thumbnail) {
+    public Book(String title, String category, String description, String thumbnail) {
         Title = title;
         Category = category;
         Description = description;
@@ -30,7 +31,7 @@ public class Book {
         return Description;
     }
 
-    public int getThumbnail() {
+    public String getThumbnail() {
         return Thumbnail;
     }
 
@@ -47,7 +48,7 @@ public class Book {
         Description = description;
     }
 
-    public void setThumbnail(int thumbnail) {
+    public void setThumbnail(String thumbnail) {
         Thumbnail = thumbnail;
     }
 }

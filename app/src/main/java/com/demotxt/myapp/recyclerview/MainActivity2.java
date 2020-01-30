@@ -1,6 +1,7 @@
 package com.demotxt.myapp.recyclerview;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity2 extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,8 +69,15 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
                 break;
 
             case  R.id.nav_acc:
-                fragment=new ProfileFragment();
-                break;
+                if(getloginprefference()==true) {
+                    fragment = new ProfileFragment();
+                    break;
+                }else {
+
+                    Intent login=new Intent(MainActivity2.this,Login.class);
+                    startActivity(login);
+                }
+
             case  R.id.nav_nearby:
                 try {
                     Intent i=new Intent(MainActivity2.this,MapFragment.class);
@@ -90,5 +100,21 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
         return  loadFragment(fragment);
       return false;
     }
+
+    private boolean getloginprefference() {
+
+        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+
+        loginPrefsEditor = loginPreferences.edit();
+        String username=loginPreferences.getString("username", "");
+        String pass=loginPreferences.getString("password", "");
+        if(username!=null||pass!=null)
+        {
+            return true;
+        }else{
+            return  false;
+        }
+
     }
+}
 

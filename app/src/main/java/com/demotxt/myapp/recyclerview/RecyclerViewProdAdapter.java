@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class RecyclerViewProdAdapter extends RecyclerView.Adapter<RecyclerViewProdAdapter.MyViewHolder> {
@@ -38,7 +40,8 @@ public class RecyclerViewProdAdapter extends RecyclerView.Adapter<RecyclerViewPr
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         holder.tv_book_title.setText(Data1.get(position).getTitle());
-        holder.img_book_thumbnail.setImageResource(Data1.get(position).getThumbnail());
+       // holder.img_book_thumbnail.setImageResource(Data1.get(position).getThumbnail());
+        Picasso.get().load(Data1.get(position).getThumbnail()).into(holder.img_book_thumbnail);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

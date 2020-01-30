@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class Book_Activity extends AppCompatActivity {
 
     private TextView tvtitle,tvdescription,tvcategory;
@@ -25,13 +27,14 @@ public class Book_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String Title = intent.getExtras().getString("Title");
         String Description = intent.getExtras().getString("Description");
-        int image = intent.getExtras().getInt("Thumbnail") ;
+        String image = intent.getExtras().getString("Thumbnail") ;
 
         // Setting values
 
         tvtitle.setText(Title);
         tvdescription.setText(Description);
-        img.setImageResource(image);
+        //img.setImageResource(image);
+        Picasso.get().load(image).into(img);
 
 
     }
