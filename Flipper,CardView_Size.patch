@@ -1,0 +1,341 @@
+Index: app/src/main/java/com/demotxt/myapp/recyclerview/RecyclerViewProdAdapter.java
+===================================================================
+--- app/src/main/java/com/demotxt/myapp/recyclerview/RecyclerViewProdAdapter.java	(date 1580224363000)
++++ app/src/main/java/com/demotxt/myapp/recyclerview/Adapter/RecyclerViewProdAdapter.java	(date 1580226894799)
+@@ -1,6 +1,5 @@
+-package com.demotxt.myapp.recyclerview;
++package com.demotxt.myapp.recyclerview.Adapter;
+ 
+-import android.app.Activity;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.view.LayoutInflater;
+@@ -12,12 +11,17 @@
+ import androidx.cardview.widget.CardView;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
++import com.demotxt.myapp.recyclerview.Prod;
++import com.demotxt.myapp.recyclerview.Prod_Activity;
++import com.demotxt.myapp.recyclerview.R;
++
+ import java.util.List;
+ 
+ public class RecyclerViewProdAdapter extends RecyclerView.Adapter<RecyclerViewProdAdapter.MyViewHolder> {
+ 
+     private Context mContext ;
+     private List<Prod> Data1 ;
++    private List<Prod> ProdFull;
+ 
+ 
+     public RecyclerViewProdAdapter(Context mContext, List<Prod> data1) {
+@@ -43,7 +47,7 @@
+             @Override
+             public void onClick(View v) {
+ 
+-                Intent intent = new Intent(mContext,Prod_Activity.class);
++                Intent intent = new Intent(mContext, Prod_Activity.class);
+ 
+                 // passing data to the book activity
+                 intent.putExtra("Title",Data1.get(position).getTitle());
+Index: app/src/main/java/com/demotxt/myapp/recyclerview/RecyclerView3.java
+===================================================================
+--- app/src/main/java/com/demotxt/myapp/recyclerview/RecyclerView3.java	(date 1580224363000)
++++ app/src/main/java/com/demotxt/myapp/recyclerview/Adapter/RecyclerView3.java	(date 1580236716950)
+@@ -1,27 +1,39 @@
+-package com.demotxt.myapp.recyclerview;
++package com.demotxt.myapp.recyclerview.Adapter;
+ 
+ import android.content.Context;
+ import android.content.Intent;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.Filter;
++import android.widget.Filterable;
+ import android.widget.ImageView;
+ import android.widget.TextView;
+ 
+ import androidx.cardview.widget.CardView;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
++import com.demotxt.myapp.recyclerview.R;
++import com.demotxt.myapp.recyclerview.r3;
++import com.demotxt.myapp.recyclerview.r3_Activity;
++
++import java.util.ArrayList;
+ import java.util.List;
+ 
+-public class RecyclerView3 extends RecyclerView.Adapter<RecyclerView3.MyViewHolder> {
++public class RecyclerView3 extends RecyclerView.Adapter<RecyclerView3.MyViewHolder> implements Filterable {
+ 
+     private Context mContext ;
+     private List<r3> Data2 ;
++    //
++    private List<r3> r3Full;
+ 
+ 
+     public RecyclerView3(Context mContext, List<r3> data) {
+         this.mContext = mContext;
+         this.Data2 = data;
++        //
++        r3Full = new ArrayList<>(data);
++
+     }
+ 
+     @Override
+@@ -42,7 +54,7 @@
+             @Override
+             public void onClick(View v) {
+ 
+-                Intent intent = new Intent(mContext,r3_Activity.class);
++                Intent intent = new Intent(mContext, r3_Activity.class);
+ 
+                 // passing data to the book activity
+                 intent.putExtra("Title",Data2.get(position).getTitle());
+@@ -79,5 +91,40 @@
+ 
+         }
+     }
++//Filter
++    @Override
++    public Filter getFilter() {
++        return exampleFilter;
++    }
++    private Filter exampleFilter = new Filter() {
++        @Override
++        protected FilterResults performFiltering(CharSequence constraint) {
++            List<r3> filteredlist = new ArrayList<>();
++
++            if(constraint == null || constraint.length()==0){
++                filteredlist.addAll(r3Full);
++            } else {
++                String filterPattern = constraint.toString().toLowerCase().trim();
+ 
++                for (r3 item : r3Full){
++                    if(item.getTitle().toLowerCase().contains(filterPattern)){
++                        filteredlist.add(item);
++                    }
++                }
++            }
++
++            FilterResults results = new FilterResults();
++            results.values = filteredlist;
++
++            return results;
++        }
++
++        @Override
++        protected void publishResults(CharSequence constraint, FilterResults results) {
++            Data2.clear();
++            Data2.addAll((List)results.values);
++            notifyDataSetChanged();
++
++        }
++    };
+ }
+Index: app/src/main/java/com/demotxt/myapp/recyclerview/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/demotxt/myapp/recyclerview/MainActivity.java	(date 1580224363000)
++++ app/src/main/java/com/demotxt/myapp/recyclerview/MainActivity.java	(date 1580231713355)
+@@ -2,72 +2,23 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+-import android.widget.LinearLayout;
+ 
+-import androidx.recyclerview.widget.GridLayoutManager;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
++import com.demotxt.myapp.recyclerview.Adapter.RecyclerViewAdapter;
++import com.demotxt.myapp.recyclerview.Adapter.RecyclerViewProdAdapter;
++
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ public class MainActivity extends AppCompatActivity {
+ 
+-    List<Book> lstBook;
+-    List<Prod> Book2;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+ 
+-        //Data for view 1
+-        lstBook = new ArrayList<>();
+-        lstBook.add(new Book("Toddler suit","Kids","Description",R.drawable.baby));
+-        lstBook.add(new Book("Black shoes","Shoes","Description",R.drawable.shoes));
+-        lstBook.add(new Book("Dress","Women","Description",R.drawable.female));
+-        lstBook.add(new Book("Designer Jacket"," Men","Description",R.drawable.jacket));
+-        lstBook.add(new Book("Toddler suit","Kids","Description",R.drawable.baby));
+-        lstBook.add(new Book("Black shoes","Shoes","Description",R.drawable.shoes));
+-        lstBook.add(new Book("Dress","Women","Description",R.drawable.female));
+-        lstBook.add(new Book("Designer Jacket","Men","Description",R.drawable.jacket));
+-        lstBook.add(new Book("Toddler suit","Kids","Description",R.drawable.baby));
+-        lstBook.add(new Book("Black shoes","Shoes","Description",R.drawable.shoes));
+-        lstBook.add(new Book("Dress","Women","Description",R.drawable.female));
+-        lstBook.add(new Book("Designer Jacket","Men","Description",R.drawable.jacket));
+-
+-        //Data for view 2
+-        Book2 = new ArrayList<>();
+-        Book2.add(new Prod("Toddler suit","Kids","Description",R.drawable.baby));
+-        Book2.add(new Prod("Black shoes","Shoes","Description",R.drawable.shoes));
+-        Book2.add(new Prod("Dress","Women","Description",R.drawable.female));
+-        Book2.add(new Prod("Designer Jacket"," Men","Description",R.drawable.jacket));
+-        Book2.add(new Prod("Toddler suit","Kids","Description",R.drawable.baby));
+-        Book2.add(new Prod("Black shoes","Shoes","Description",R.drawable.shoes));
+-        Book2.add(new Prod("Dress","Women","Description",R.drawable.female));
+-        Book2.add(new Prod("Designer Jacket","Men","Description",R.drawable.jacket));
+-        Book2.add(new Prod("Toddler suit","Kids","Description",R.drawable.baby));
+-        Book2.add(new Prod("Black shoes","Shoes","Description",R.drawable.shoes));
+-        Book2.add(new Prod("Dress","Women","Description",R.drawable.female));
+-        Book2.add(new Prod("Designer Jacket","Men","Description",R.drawable.jacket));
+-
+-
+-//Recycler View 1
+-        RecyclerView myrv = (RecyclerView) findViewById(R.id.recyclerview_id);
+-        RecyclerViewAdapter myAdapter = new RecyclerViewAdapter(this,lstBook);
+-        LinearLayoutManager layoutManager
+-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+-        myrv.setLayoutManager(layoutManager);
+-        myrv.setAdapter(myAdapter);
+-//Recycler View 2
+-
+-        RecyclerView myrv2 = (RecyclerView) findViewById(R.id.recyclerview2);
+-        RecyclerViewProdAdapter myAdapter1 = new RecyclerViewProdAdapter(this,Book2);
+-        LinearLayoutManager layoutManager1
+-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+-        myrv2.setLayoutManager(layoutManager1);
+-        myrv2.setAdapter(myAdapter1);
+-
+-
+     }
+ }
+Index: app/src/main/java/com/demotxt/myapp/recyclerview/HomeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/demotxt/myapp/recyclerview/HomeFragment.java	(date 1580224363000)
++++ app/src/main/java/com/demotxt/myapp/recyclerview/HomeFragment.java	(date 1580268485612)
+@@ -1,20 +1,27 @@
+ package com.demotxt.myapp.recyclerview;
+ 
+ import android.content.Intent;
+-import android.media.Image;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
++import android.view.Menu;
++import android.view.MenuInflater;
++import android.view.MenuItem;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.view.inputmethod.EditorInfo;
+ import android.widget.ImageView;
+ import android.widget.ViewFlipper;
+ 
+ import androidx.annotation.NonNull;
+-import androidx.annotation.Nullable;
++import androidx.appcompat.widget.SearchView;
+ import androidx.fragment.app.Fragment;
+ import androidx.recyclerview.widget.LinearLayoutManager;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
++import com.demotxt.myapp.recyclerview.Adapter.RecyclerView3;
++import com.demotxt.myapp.recyclerview.Adapter.RecyclerViewAdapter;
++import com.demotxt.myapp.recyclerview.Adapter.RecyclerViewProdAdapter;
++
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+@@ -23,6 +30,8 @@
+     List<Prod> Book22;
+     List<r3> mTrends;
+ 
++    private RecyclerView3 myAdapter2;
++
+     ViewFlipper mFlipper;
+ 
+     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+@@ -98,8 +107,10 @@
+ //Recycler View 3
+ 
+         RecyclerView myrv3 = (RecyclerView) view.findViewById(R.id.recyclerview3);
+-        RecyclerView3 myAdapter2 = new RecyclerView3(getActivity(), mTrends);
++       // RecyclerView3 myAdapter2 = new RecyclerView3(getActivity(), mTrends);
+         LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
++
++        myAdapter2 = new RecyclerView3(getActivity(),mTrends);
+         myrv3.setLayoutManager(layoutManager2);
+         myrv3.setAdapter(myAdapter2);
+ 
+@@ -137,4 +148,27 @@
+         mFlipper.setInAnimation(getContext(),android.R.anim.slide_in_left);
+         mFlipper.setOutAnimation(getContext(),android.R.anim.slide_out_right);
+     }
++
++    @Override
++    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
++
++        inflater.inflate(R.menu.example_menu,menu);
++        MenuItem searchItem = menu.findItem(R.id.action_search);
++        SearchView searchView = (SearchView) searchItem.getActionView();
++        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
++
++        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
++            @Override
++            public boolean onQueryTextSubmit(String query) {
++                return false;
++            }
++
++            @Override
++            public boolean onQueryTextChange(String newText) {
++                myAdapter2.getFilter().filter(newText);
++                return false;
++            }
++        });
++    }
+ }
++
+Index: app/src/main/java/com/demotxt/myapp/recyclerview/RecyclerViewAdapter.java
+===================================================================
+--- app/src/main/java/com/demotxt/myapp/recyclerview/RecyclerViewAdapter.java	(date 1580224363000)
++++ app/src/main/java/com/demotxt/myapp/recyclerview/Adapter/RecyclerViewAdapter.java	(date 1580226894752)
+@@ -1,4 +1,4 @@
+-package com.demotxt.myapp.recyclerview;
++package com.demotxt.myapp.recyclerview.Adapter;
+ 
+ import android.content.Context;
+ import android.content.Intent;
+@@ -10,12 +10,17 @@
+ import android.widget.ImageView;
+ import android.widget.TextView;
+ 
++import com.demotxt.myapp.recyclerview.Book;
++import com.demotxt.myapp.recyclerview.Book_Activity;
++import com.demotxt.myapp.recyclerview.R;
++
+ import java.util.List;
+ 
+ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+ 
+     private Context mContext ;
+     private List<Book> mData ;
++    private List<Book> BookFull;
+ 
+ 
+     public RecyclerViewAdapter(Context mContext, List<Book> mData) {
+@@ -41,7 +46,7 @@
+             @Override
+             public void onClick(View v) {
+ 
+-                Intent intent = new Intent(mContext,Book_Activity.class);
++                Intent intent = new Intent(mContext, Book_Activity.class);
+ 
+                 // passing data to the book activity
+                 intent.putExtra("Title",mData.get(position).getTitle());
