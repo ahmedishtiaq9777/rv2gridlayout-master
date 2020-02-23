@@ -1,24 +1,29 @@
-package com.demotxt.myapp.recyclerview;
+package com.demotxt.myapp.recyclerview.Fragments;
 
+import android.content.Context;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.demotxt.myapp.recyclerview.R;
+import com.demotxt.myapp.recyclerview.shoppycartlist.CartListActivity;
 import com.demotxt.myapp.recyclerview.shoppycartlist.CartListBaseAdapter;
 import com.demotxt.myapp.recyclerview.shoppycartlist.CartListBeanlist;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class FavoriteFragment extends Fragment {
+
+public class CartFragment extends Fragment  {
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private ListView listview;
 
     Typeface fonts1, fonts2;
@@ -36,7 +41,7 @@ public class FavoriteFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.favoritefragment, container, false);
+       View view= inflater.inflate(R.layout.fragment_cart, container, false);
         listview = (ListView) view.findViewById(R.id.listview);
 
 
@@ -59,4 +64,6 @@ public class FavoriteFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
+
 }

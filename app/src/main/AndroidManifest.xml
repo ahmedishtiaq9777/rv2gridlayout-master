@@ -18,24 +18,24 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Login">
+        <activity android:name=".MainActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MapFragment"></activity>
+        <activity android:name=".Fragments.MapFragment"></activity>
         <activity android:name=".Book_Activity"></activity>
 
-        <activity android:name=".UsersettingFragment"></activity>
+        <activity android:name=".Fragments.UsersettingFragment"></activity>
 
 
         <activity android:name=".Signup"></activity>
         <activity android:name=".shoppyorders.ShoppyOrderActivity"></activity>
         <activity android:name=".Prod_Activity"></activity>
         <activity android:name=".r3_Activity"></activity>
-        <activity android:name=".MainActivity2"></activity>
+        <activity android:name=".Login"></activity>
         <activity android:name=".productlist.ShoppyProductListActivity"></activity>
         <activity android:name=".Test"></activity>
 

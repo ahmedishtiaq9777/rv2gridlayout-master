@@ -3,27 +3,20 @@ package com.demotxt.myapp.recyclerview;
 public class Prod {
 
     private String Title;
-    private String Category;
     private String Description;
     private int Thumbnail;
+    private String Price;
 
-    public Prod() {
-    }
-
-    public Prod(String title, String category, String description, int thumbnail) {
+    public Prod(String title, String description, int thumbnail,String price) {
         Title = title;
-        Category = category;
         Description = description;
         Thumbnail = thumbnail;
+        Price = price;
     }
 
-
+    //GET
     public String getTitle() {
         return Title;
-    }
-
-    public String getCategory() {
-        return Category;
     }
 
     public String getDescription() {
@@ -34,13 +27,11 @@ public class Prod {
         return Thumbnail;
     }
 
+    public String getPrice(){return Price;}
 
+    //SET
     public void setTitle(String title) {
         Title = title;
-    }
-
-    public void setCategory(String category) {
-        Category = category;
     }
 
     public void setDescription(String description) {
@@ -50,4 +41,6 @@ public class Prod {
     public void setThumbnail(int thumbnail) {
         Thumbnail = thumbnail;
     }
+
+    public void setPrice(String price){Price = price;}
 }

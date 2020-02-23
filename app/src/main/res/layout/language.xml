@@ -12,19 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-
-
+        style="@style/TextAppearance.AppCompat.Display4"
         >
-
-
         <RadioButton
             android:id="@+id/english"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="English"
-
             android:textSize="40dp">
-
         </RadioButton>
         <RadioButton
             android:id="@+id/Urdu"

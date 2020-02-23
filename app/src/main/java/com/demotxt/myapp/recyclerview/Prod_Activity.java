@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Prod_Activity extends AppCompatActivity {
 
-    private TextView tvtitle,tvdescription,tvcategory;
+    private TextView tvtitle,tvdescription,tvPrice;
     private ImageView img;
 
     @Override
@@ -17,21 +17,22 @@ public class Prod_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prod_);
 
-        tvtitle = (TextView) findViewById(R.id.txttitle);
-        tvdescription = (TextView) findViewById(R.id.txtDesc);
-        tvcategory = (TextView) findViewById(R.id.txtCat);
-        img = (ImageView) findViewById(R.id.bookthumbnail);
+        tvtitle = (TextView) findViewById(R.id.prodtitle);
+        tvdescription = (TextView) findViewById(R.id.prodDesc);
+        tvPrice = (TextView) findViewById(R.id.prodPrice);
+        img = (ImageView) findViewById(R.id.prodthumbnail);
 
         // Recieve data
         Intent intent = getIntent();
         String Title = intent.getExtras().getString("Title");
         String Description = intent.getExtras().getString("Description");
         int image = intent.getExtras().getInt("Thumbnail") ;
+        String Price = intent.getExtras().getString("Price");
 
         // Setting values
-
         tvtitle.setText(Title);
         tvdescription.setText(Description);
+        tvPrice.setText(Price);
         img.setImageResource(image);
 
 

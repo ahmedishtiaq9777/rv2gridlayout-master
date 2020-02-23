@@ -21,7 +21,18 @@
     <FrameLayout
         android:id="@+id/fragmentcontainer"
         android:layout_width="match_parent"
-        android:layout_height="690dp"
+        android:layout_height="620dp"
         android:layout_above="@id/nav_view"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/fragmentcontainer"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+
+        android:background="@color/colorPrimaryDark"
+        app:menu="@menu/example_menu" />
+
 
 </RelativeLayout>
