@@ -1,4 +1,4 @@
-package com.demotxt.myapp.recyclerview;
+package com.demotxt.myapp.recyclerview.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.demotxt.myapp.recyclerview.R;
 import com.demotxt.myapp.recyclerview.sharepref.SharedPref;
 import com.google.android.material.snackbar.Snackbar;
 

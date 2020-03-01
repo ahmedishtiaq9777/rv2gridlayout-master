@@ -5,20 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.demotxt.myapp.recyclerview.HomeFragment"
+    tools:context="com.demotxt.myapp.recyclerview.Fragments.HomeFragment"
     android:background="@drawable/gradient2">
-
-    <include layout="@layout/toolbar_homepage"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="match_parent"
         android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+<<<<<<< HEAD
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp" android:orientation="vertical">
@@ -37,29 +36,19 @@
                 android:gravity="bottom"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="8dp">
+=======
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="150dp">
+>>>>>>> af0b7361a5ed5ede1db4cc600ecbdcbf4a959109
 
-                <ImageView
-                    android:id="@+id/image_cat1"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_person_black" />
+               <ViewFlipper
+                   android:id="@+id/flipper"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   />
 
-                <ImageView
-                    android:id="@+id/image_cat2"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_woman_black_24dp" />
-
-                <ImageView
-                    android:id="@+id/image_cat3"
-                    android:layout_width="70dp"
-                    android:layout_height="60dp"
-                    android:clickable="true"
-                    android:src="@drawable/ic_child_care_black" />
-
-            </LinearLayout>
+        </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -102,6 +91,21 @@
                 android:id="@+id/recyclerview3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="Parsed"
+                android:textColor="#76ff03"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
 
         </LinearLayout>
 

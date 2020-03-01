@@ -1,11 +1,12 @@
-package com.demotxt.myapp.recyclerview;
+package com.demotxt.myapp.recyclerview.Fragments;
 
+<<<<<<< HEAD:app/src/main/java/com/demotxt/myapp/recyclerview/ProfileFragment.java
 import android.app.Dialog;
 import android.content.DialogInterface;
+=======
+>>>>>>> af0b7361a5ed5ede1db4cc600ecbdcbf4a959109:app/src/main/java/com/demotxt/myapp/recyclerview/Fragments/ProfileFragment.java
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +18,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import  com.balysv.materialripple.MaterialRippleLayout;
+import com.demotxt.myapp.recyclerview.Config;
+import com.demotxt.myapp.recyclerview.R;
 import com.demotxt.myapp.recyclerview.sharepref.SharedPref;
 import com.demotxt.myapp.recyclerview.shoppyorders.ShoppyOrderActivity;
 import com.google.android.material.snackbar.Snackbar;

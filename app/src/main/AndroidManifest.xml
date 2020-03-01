@@ -25,10 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MapFragment"></activity>
+        <activity android:name=".Fragments.MapFragment"></activity>
         <activity android:name=".Book_Activity"></activity>
 
-        <activity android:name=".UsersettingFragment"></activity>
+        <activity android:name=".Fragments.UsersettingFragment"></activity>
 
 
         <activity android:name=".Signup"></activity>

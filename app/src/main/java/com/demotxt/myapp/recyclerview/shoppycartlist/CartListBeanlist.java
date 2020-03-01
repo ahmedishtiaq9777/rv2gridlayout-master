@@ -1,8 +1,5 @@
 package com.demotxt.myapp.recyclerview.shoppycartlist;
 
-/**
- * Created by apple on 15/03/16.
- */
 public class CartListBeanlist {
 
     private int image;

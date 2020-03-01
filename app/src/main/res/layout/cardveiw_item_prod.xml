@@ -3,8 +3,8 @@
     android:id="@+id/cardview2"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:layout_width="120dp"
-    android:layout_height="190dp"
+    android:layout_width="130dp"
+    android:layout_height="150dp"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     cardview:cardCornerRadius="4dp">
@@ -18,33 +18,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/book_img_id"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            android:background="#2d2d2d"/>
-
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_favorite_border_24dp"
-                android:id="@+id/heart"
-                android:layout_alignParentRight="true"
-                />
+                android:id="@+id/prod_img_id"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:background="#2d2d2d"/>
+
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/book_title_id"
-            android:textColor="#2d2d2d"
-            android:textSize="13sp"
-            android:gravity="center"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="P_Name"/>
+            android:orientation="horizontal">
 
-        
+            <TextView
+                android:id="@+id/prod_title_id"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="P_Name"
+                android:gravity="center"
+                android:textColor="#2d2d2d"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/prod_price_id"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Price"
+                android:textColor="@color/green2"
+                android:textSize="13sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

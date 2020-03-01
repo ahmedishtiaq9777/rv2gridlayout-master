@@ -19,17 +19,13 @@
 
     >
 
-
-    <ImageView
+    <ImageButton
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/back"
+        android:src="@drawable/ic_arrow_back_black_24dp"
         android:layout_gravity="left"
        android:padding="16dp"
-
-
-
         />
 
 
@@ -38,7 +34,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="CART"
+    android:text="Product"
     android:textColor="@color/white"
     android:textSize="@dimen/text"
     android:gravity="center"

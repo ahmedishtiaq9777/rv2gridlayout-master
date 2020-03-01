@@ -1,7 +1,6 @@
 package com.demotxt.myapp.recyclerview;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -11,20 +10,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.demotxt.myapp.recyclerview.Fragments.CartFragment;
+import com.demotxt.myapp.recyclerview.Fragments.FavoriteFragment;
+import com.demotxt.myapp.recyclerview.Fragments.HomeFragment;
+import com.demotxt.myapp.recyclerview.Fragments.MapFragment;
+import com.demotxt.myapp.recyclerview.Fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity2 extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-    private SharedPreferences loginPreferences;
-    private SharedPreferences.Editor loginPrefsEditor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activitymain2);
-
-
-
-
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -69,18 +67,11 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
                 break;
 
             case  R.id.nav_acc:
-                if(getloginprefference()==true) {
-                    fragment = new ProfileFragment();
-                    break;
-                }else {
-
-                    Intent login=new Intent(MainActivity2.this,Login.class);
-                    startActivity(login);
-                }
-
+                fragment=new ProfileFragment();
+                break;
             case  R.id.nav_nearby:
                 try {
-                    Intent i=new Intent(MainActivity2.this,MapFragment.class);
+                    Intent i=new Intent(MainActivity2.this, MapFragment.class);
                     op=1;
                     startActivity(i);
                     //fragment=new MapFragment();
@@ -101,20 +92,5 @@ public class MainActivity2 extends AppCompatActivity implements BottomNavigation
       return false;
     }
 
-    private boolean getloginprefference() {
-
-        loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
-
-        loginPrefsEditor = loginPreferences.edit();
-        String username=loginPreferences.getString("username", "");
-        String pass=loginPreferences.getString("password", "");
-        if(username!=null||pass!=null)
-        {
-            return true;
-        }else{
-            return  false;
-        }
-
     }
-}
 

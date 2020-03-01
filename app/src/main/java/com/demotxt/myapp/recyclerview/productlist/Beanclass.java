@@ -1,9 +1,5 @@
 package com.demotxt.myapp.recyclerview.productlist;
 
-/**
- * Created by Rp on 3/30/2016.
- */
-
 
 //********GRIDVIEW************
 public class Beanclass {

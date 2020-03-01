@@ -1,53 +1,46 @@
 package com.demotxt.myapp.recyclerview;
 
 public class r3 {
-
     private String Title;
-    private String Category;
     private String Description;
-    private String Thumbnail;
+    private int Thumbnail;
+    private String Price;
 
-    public r3() {
-    }
 
-    public r3(String title, String category, String description, String thumbnail) {
+    public r3(String title, String description, int thumbnail,String price) {
         Title = title;
-        Category = category;
         Description = description;
         Thumbnail = thumbnail;
+        Price = price;
     }
 
-
+    //GET
     public String getTitle() {
         return Title;
-    }
-
-    public String getCategory() {
-        return Category;
     }
 
     public String getDescription() {
         return Description;
     }
 
-    public String getThumbnail() {
+    public int getThumbnail() {
         return Thumbnail;
     }
 
+    public String getPrice(){return Price;}
 
+    //SET
     public void setTitle(String title) {
         Title = title;
-    }
-
-    public void setCategory(String category) {
-        Category = category;
     }
 
     public void setDescription(String description) {
         Description = description;
     }
 
-    public void setThumbnail(String thumbnail) {
+    public void setThumbnail(int thumbnail) {
         Thumbnail = thumbnail;
     }
+
+    public void setPrice(String price){Price = price;}
 }
