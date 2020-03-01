@@ -36,8 +36,9 @@
         <activity android:name=".Prod_Activity"></activity>
         <activity android:name=".r3_Activity"></activity>
         <activity android:name=".Login"></activity>
-        <activity android:name=".productlist.ShoppyProductListActivity"></activity>
+
         <activity android:name=".Test"></activity>
+        <activity android:name=".productlist.ShoppyProductListActivity"></activity>
 
 
 

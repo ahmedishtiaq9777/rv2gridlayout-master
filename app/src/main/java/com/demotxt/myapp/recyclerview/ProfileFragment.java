@@ -1,6 +1,7 @@
 package com.demotxt.myapp.recyclerview;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import androidx.fragment.app.FragmentTransaction;
 import  com.balysv.materialripple.MaterialRippleLayout;
 import com.demotxt.myapp.recyclerview.sharepref.SharedPref;
 import com.demotxt.myapp.recyclerview.shoppyorders.ShoppyOrderActivity;
+import com.google.android.material.snackbar.Snackbar;
+
 
 public class ProfileFragment extends Fragment{
 
@@ -29,9 +32,15 @@ public class ProfileFragment extends Fragment{
     TextView txt_user_email;
     TextView txt_user_phone;
     TextView txt_user_address;
+    TextView lang;
     MaterialRippleLayout btn_edit_user;
     MaterialRippleLayout btn_order_history, btn_rate, btn_share, btn_privacy,language;
     LinearLayout lyt_root;
+
+
+    private static final String[] Languages = new String[]{
+            "English", "Urdu"
+    };
 
     @Nullable
     @Override
@@ -54,6 +63,7 @@ sharedPref =new SharedPref(getActivity());
         txt_user_email = view.findViewById(R.id.txt_user_email);
         txt_user_phone = view.findViewById(R.id.txt_user_phone);
         txt_user_address = view.findViewById(R.id.txt_user_address);
+        lang=     view.findViewById(R.id.languagetext);
 
         txt_user_name.setText(sharedPref.getYourName());
         txt_user_email.setText(sharedPref.getYourEmail());
@@ -115,13 +125,35 @@ sharedPref =new SharedPref(getActivity());
             @Override
             public void onClick(View v) {
 
-                AlertDialog dialog;
+              /*  AlertDialog dialog;
                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-                builder.setMessage("LANGUAGE").setView(v2);
+                builder.setMessage("LANGUAGE").setView(view);
 
                 dialog=builder.create();
                 dialog.show();
+*/
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Phone Ringtone");
+                builder.setSingleChoiceItems(Languages, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        lang.setText(Languages[i]);
+                        //single_choice_selected = Languages[i];
+                       // language.
+                    }
+                });
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                       // Snackbar.make(parent_view, "selected : " + single_choice_selected, Snackbar.LENGTH_SHORT).show();
+
+
+
+                    }
+                });
+                builder.setNegativeButton("cancel", null);
+                builder.show();
 
             }
         });

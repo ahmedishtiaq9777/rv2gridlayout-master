@@ -42,15 +42,11 @@ public class HomeFragment extends Fragment {
     ViewFlipper viewFlipper;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view2=inflater.inflate(R.layout.homefragment,null);
-        viewFlipper=(ViewFlipper)view2.findViewById(R.id.flipper);
+       // View view2=inflater.inflate(R.layout.homefragment,null);
+       // viewFlipper=(ViewFlipper)view2.findViewById(R.id.flipper);
 
 
-        int images[] = {R.drawable.ac_banner,R.drawable.cloth_banner,R.drawable.sale1,R.drawable.mobile_banner};
 
-        for (int image:images) {
-flipperimages(image);
-        }
 
 
         lstBook2 = new ArrayList<>();
@@ -152,6 +148,15 @@ flipperimages(image);
                 startActivity(productdetail);
             }
         });
+
+        //flipper
+        viewFlipper=(ViewFlipper)view.findViewById(R.id.flipper);
+        int images[] = {R.drawable.ac_banner,R.drawable.cloth_banner,R.drawable.sale1,R.drawable.mobile_banner};
+
+        for (int image:images) {
+            flipperimages(image);
+        }
+
 return  view;
 
 
@@ -262,8 +267,8 @@ return  view;
             viewFlipper.addView(imageView);
             viewFlipper.setFlipInterval(3000);
             viewFlipper.setAutoStart(true);
-            viewFlipper.setInAnimation(getActivity(),android.R.anim.slide_in_left);
-            viewFlipper.setOutAnimation(getActivity(),android.R.anim.slide_out_right);
+            viewFlipper.setInAnimation(getContext(),android.R.anim.slide_in_left);
+            viewFlipper.setOutAnimation(getContext(),android.R.anim.slide_out_right);
         }catch(Exception e)
         {
             Toast.makeText(getContext(),"error:"+e.getMessage(),Toast.LENGTH_SHORT).show();

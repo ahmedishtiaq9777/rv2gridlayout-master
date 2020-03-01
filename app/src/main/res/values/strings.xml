@@ -46,5 +46,14 @@
 
 
     <string name="share_app">I Would like to share this E-Commerce Android App with you. Here You Can Download This Application from PlayStore</string>
-    
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+        \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+    </string>
+
+
+
+
+
 </resources>

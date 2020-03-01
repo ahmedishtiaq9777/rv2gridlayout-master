@@ -223,6 +223,15 @@
                     android:layout_marginLeft="6dp"
                     android:text="Language"
                     android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/languagetext"
+                    android:text="kjkjjk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:textColor="@color/white"
+                     />
+
 
             </LinearLayout>
 
